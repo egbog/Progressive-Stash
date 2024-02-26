@@ -303,7 +303,7 @@
       ]
     },
     "epsilon": {
-      "dimensions": [3, 5],
+      "dimensions": [4, 4],
       "requirements": [
         {
           "// beta container": true,
@@ -360,7 +360,7 @@
       ]
     },
     "gamma": {
-      "dimensions": [3, 7],
+      "dimensions": [4, 5],
       "requirements": [
         {
           "// epsilon container": true,
@@ -417,7 +417,7 @@
       ]
     },
     "kappa": {
-      "dimensions": [3, 8],
+      "dimensions": [4, 6],
       "requirements": [
         {
           "// gamma container": true,

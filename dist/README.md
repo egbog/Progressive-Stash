@@ -33,4 +33,4 @@ Everything is configurable: the size of the different stashes and secure contain
 
 
 ## AKI Compatiblity
-It's compatible with spt-aki 3.0.0
+It's compatible with SPT-AKI 3.7.6
