@@ -417,7 +417,7 @@
       ]
     },
     "kappa": {
-      "dimensions": [3, 8],
+      "dimensions": [4, 6],
       "requirements": [
         {
           "// gamma container": true,
