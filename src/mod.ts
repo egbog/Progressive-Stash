@@ -92,7 +92,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
         this.logger = container.resolve<ILogger>("WinstonLogger");
 
         const debug = this.config.debug
-            ? (data) => this.logger.debug(`${(this.utils.getModDisplayName)(false)}: ${data}`, true)
+            ? (data) => this.logger.debug(`[${(this.utils.getModDisplayName)(false)}]: ${data}`, true)
             : this.utils.noop;
         if (this.config.debug) {
             debug("debug mode enabled");
@@ -101,7 +101,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
             debug("disabled in config.json file.");
             return;
         }
-        this.logger.info(`===> Loading ${(this.utils.getModDisplayName)(true)}`);
+        this.logger.info(`===> Loading [${(this.utils.getModDisplayName)(true)}]`);
     }
 
     public postDBLoad(container: DependencyContainer): void {
@@ -140,7 +140,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
         const nbStagesCreated = stashBuilder.injectStashesToDb(db);
 
         const debug = this.config.debug
-        ? (data) => this.logger.debug(`${(this.utils.getModDisplayName)(false)}: ${data}`, true)
+        ? (data) => this.logger.debug(`[${(this.utils.getModDisplayName)(false)}]: ${data}`, true)
         : this.utils.noop;
 
         if (nbStagesCreated > 0) {
@@ -157,6 +157,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
         if (profileTemplateBuilder.buildStashProfileTemplate(db)) {
             debug(`created "${this.constants_1.PROFILE_TEMPLATE_NAME}" profile template`);
         }
+        debug(`Initial stash size: ${(this.config.initial_stash_size)}`);
         this.logger.success(`===> Successfully loaded ${(this.utils.getModDisplayName)(true)}`);
     }
 }
