@@ -1,10 +1,8 @@
-import { Constants } from './constants';
+import * as Constants from './constants';
 import fs from 'fs';
 import path from 'path';
 
 export class Utils {
-    private _constants = new Constants;
-
     noop() {};
 
     readJsonFile = (config: string) => {
@@ -23,28 +21,28 @@ export class Utils {
     getStashId = (index) => {
         switch (index) {
             case 1:
-                return this._constants.STANDARD_STASH_ID;
+                return Constants.STANDARD_STASH_ID;
             case 2:
-                return this._constants.LEFT_BEHIND_STASH_ID;
+                return Constants.LEFT_BEHIND_STASH_ID;
             case 3:
-                return this._constants.PREPARE_FOR_ESCAPE_STASH_ID;
+                return Constants.PREPARE_FOR_ESCAPE_STASH_ID;
             case 4:
-                return this._constants.EDGE_OF_DARKNESS_STASH_ID;
+                return Constants.EDGE_OF_DARKNESS_STASH_ID;
             default:
-                return `${this._constants.PROGRESSIVE_STASH_PREFIX_ID}_${index}`;
+                return `${Constants.PROGRESSIVE_STASH_PREFIX_ID}_${index}`;
         }
     }
 
     getStash = (index) =>{
         switch (index) {
             case 1:
-                return this._constants.STANDARD_STASH;
+                return Constants.STANDARD_STASH;
             case 2:
-                return this._constants.LEFT_BEHIND_STASH;
+                return Constants.LEFT_BEHIND_STASH;
             case 3:
-                return this._constants.PREPARE_FOR_ESCAPE_STASH;
+                return Constants.PREPARE_FOR_ESCAPE_STASH;
             case 4:
-                return this._constants.EDGE_OF_DARKNESS_STASH;
+                return Constants.EDGE_OF_DARKNESS_STASH;
         }
     }
 }
