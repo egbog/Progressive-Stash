@@ -50,9 +50,12 @@ export class SecureContainersController {
             const [horizontalSize, verticalSize] = this.secureContainers[containerName].dimensions;
             const item = tables.templates.items[secureContainerId];
             if (item) {
-                const props = item._props.Grids[0]._props;
+                const info = item._props;
+                const props = info.Grids[0]._props;
                 props.cellsH = horizontalSize;
                 props.cellsV = verticalSize;
+                info.sizeWidth = horizontalSize;
+                info.sizeHeight = verticalSize;
                 counter = counter + 1;
             }
         }
