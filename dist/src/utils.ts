@@ -28,8 +28,6 @@ export class Utils {
                 return Constants.PREPARE_FOR_ESCAPE_STASH_ID;
             case 4:
                 return Constants.EDGE_OF_DARKNESS_STASH_ID;
-            default:
-                return `${Constants.PROGRESSIVE_STASH_PREFIX_ID}_${index}`;
         }
     }
 
@@ -43,6 +41,8 @@ export class Utils {
                 return Constants.PREPARE_FOR_ESCAPE_STASH_TEMPLATEID;
             case 4:
                 return Constants.EDGE_OF_DARKNESS_STASH_TEMPLATEID;
+            default:
+                return `${Constants.PROGRESSIVE_STASH_PREFIX_ID}_${index}`;
         }
     }
 }
