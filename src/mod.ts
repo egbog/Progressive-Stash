@@ -15,7 +15,7 @@ const uglyClone = (data) => {
     return JSON.parse(JSON.stringify(data));
 };
 
-class ProfieTemplateBuilder{
+class ProfileTemplateBuilder{
     setStashLevelOne(usecOrBear) {
         const character = usecOrBear.character;
         const hideout = character.Hideout;
@@ -132,7 +132,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
 
         const stashBuilder = new StashBuilder(this.config);
         const secureContainersController = new SecureContainersController(this.config);
-        const profileTemplateBuilder = new ProfieTemplateBuilder();
+        const profileTemplateBuilder = new ProfileTemplateBuilder();
 
         const nbStagesCreated = stashBuilder.injectStashesToDb(db);
 
