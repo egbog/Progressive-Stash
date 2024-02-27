@@ -9,7 +9,7 @@ export class Utils {
         return JSON.parse(fs.readFileSync(path.resolve(__dirname, config), 'utf8'));
     }
 
-    packageJson = this.readJsonFile(Constants.packageJsonLocation);
+    private packageJson = this.readJsonFile(Constants.packageJsonLocation);
 
     getModDisplayName = (withVersion = false) => {
         if (withVersion) {
