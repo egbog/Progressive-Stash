@@ -1,7 +1,7 @@
 import * as Constants from "./constants";
 
 export class SecureContainersController {
-    secureContainers;
+    private secureContainers;
     constructor(config) {
         this.secureContainers = config.secure_containers;
     }
