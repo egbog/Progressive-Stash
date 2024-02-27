@@ -79,11 +79,10 @@ class ProfileTemplateBuilder{
 }
 
 class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
-    private config_1 = "../config/config.json";
     private logger: ILogger;
     private utils = new Utils;
 
-    private config = this.utils.readJsonFile(this.config_1);
+    private config = this.utils.readJsonFile(Constants.configJsonLocation);
 
     public preAkiLoad(container: DependencyContainer): void {
         this.logger = container.resolve<ILogger>("WinstonLogger");

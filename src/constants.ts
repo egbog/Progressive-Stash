@@ -37,3 +37,8 @@ export const PROGRESSIVE_STASH_PREFIX_ID = "trap_progressive_stash_";
  * Profile Template
  */
 export const PROFILE_TEMPLATE_NAME = "Trap's Progressive Stash";
+/**
+ * JSON Locations
+ */
+export const packageJsonLocation = "../package.json";
+export const configJsonLocation = "../config/config.json";
