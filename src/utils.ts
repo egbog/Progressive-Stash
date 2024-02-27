@@ -33,16 +33,16 @@ export class Utils {
         }
     }
 
-    getStash = (index) =>{
+    getStashTemplateId = (index) =>{
         switch (index) {
             case 1:
-                return Constants.STANDARD_STASH;
+                return Constants.STANDARD_STASH_TEMPLATEID;
             case 2:
-                return Constants.LEFT_BEHIND_STASH;
+                return Constants.LEFT_BEHIND_STASH_TEMPLATEID;
             case 3:
-                return Constants.PREPARE_FOR_ESCAPE_STASH;
+                return Constants.PREPARE_FOR_ESCAPE_STASH_TEMPLATEID;
             case 4:
-                return Constants.EDGE_OF_DARKNESS_STASH;
+                return Constants.EDGE_OF_DARKNESS_STASH_TEMPLATEID;
         }
     }
 }

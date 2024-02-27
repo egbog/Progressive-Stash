@@ -121,8 +121,8 @@ export class StashBuilder {
                 stages[stageId] = EMPTY_STAGE;
             }
             else if (index === 1) {
-                const templateId = this.utils.getStashId(index);
-                const id = this.utils.getStash(index);
+                const templateId = this.utils.getStashTemplateId(index);
+                const id = this.utils.getStashId(index);
                 stages[stageId] = {
                     ...EMPTY_STAGE,
                     bonuses: [{ ...EMPTY_STASH_BONUS, id, templateId }],
@@ -130,8 +130,8 @@ export class StashBuilder {
                 };
             }
             else {
-                const templateId = (this.utils.getStashId)(index);
-                const id = (this.utils.getStash)(index);
+                const templateId = (this.utils.getStashTemplateId)(index);
+                const id = (this.utils.getStashId)(index);
                 const upgrade = this.stashUpgrades[index - 2];
                 stages[stageId] = {
                     ...EMPTY_STAGE,

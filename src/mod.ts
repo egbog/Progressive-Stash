@@ -31,8 +31,8 @@ class ProfileTemplateBuilder{
         // 2. set bonuses StashSize to Standard stash
         character.Bonuses = [
             {
-                id: Constants.STANDARD_STASH,
-                templateId: Constants.STANDARD_STASH_ID,
+                id: Constants.STANDARD_STASH_ID,
+                templateId: Constants.STANDARD_STASH_TEMPLATEID,
                 type: "StashSize",
             },
         ];
