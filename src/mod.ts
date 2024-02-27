@@ -41,9 +41,9 @@ class ProfileTemplateBuilder{
         let id = "";
         // 4. add stash instance
         inventory.items = inventory.items.map((item) => {
-            if (item._tpl === Constants.EDGE_OF_DARKNESS_STASH_ID) {
+            if (item._tpl === Constants.EDGE_OF_DARKNESS_STASH_TEMPLATEID) {
                 id = item._id;
-                return { ...item, _tpl: Constants.STANDARD_STASH_ID };
+                return { ...item, _tpl: Constants.STANDARD_STASH_TEMPLATEID };
             }
             return item;
         });

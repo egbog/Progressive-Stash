@@ -135,13 +135,12 @@ export class StashBuilder {
             else {
                 const templateId = (this.utils.getStashTemplateId)(index);
                 const id = (this.utils.getStashId)(index);
-                const constructionTime = this.stashUpgrades[index - 2].construction_time;
                 const upgrade = this.stashUpgrades[index - 2];
                 stages[stageId] = {
                     ...EMPTY_STAGE,
                     bonuses: [{ ...EMPTY_STASH_BONUS, id, templateId }],
                     requirements: upgrade.requirements.map((r) => r.type === "Item" ? { ...r, isFunctional: false } : r),
-                    constructionTime: constructionTime,
+                    constructionTime: upgrade.construction_time,
                 };
             }
         }
@@ -153,7 +152,7 @@ export class StashBuilder {
         const nbStashes = this.stashUpgrades.length + 1;
         const stashIds = Array.from(Array(nbStashes).keys())
             .map((index) => index + 1)
-            .map(this.utils.getStashId);
+            .map(this.utils.getStashTemplateId);
         let previousStashId;
         const items = stashIds.map((stashId, index) => {
             const protoId = previousStashId;
