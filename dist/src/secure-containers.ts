@@ -1,18 +1,17 @@
-import { Constants } from "./constants";
+import * as Constants from "./constants";
 
 export class SecureContainersController {
-    private constants_1 = new Constants;
-    secureContainers;
+    private secureContainers;
     constructor(config) {
         this.secureContainers = config.secure_containers;
     }
 
-    createCraft = (itemId, requirements) => {
+    createCraft = (itemId, requirements, productionTime) => {
         return {
             _id: `${itemId}_craft`,
-            areaType: this.constants_1.WORKBENCH_AREA,
+            areaType: Constants.WORKBENCH_AREA,
             requirements: requirements.map((r) => r.type === "Item" ? { ...r, isFunctional: false } : r),
-            productionTime: 300,
+            productionTime: productionTime,
             endProduct: itemId,
             continuous: false,
             count: 1,
@@ -28,12 +27,13 @@ export class SecureContainersController {
         const tables = db.getTables();
 
         for (const containerName of Object.keys(this.secureContainers)){
-            const secureContainerId = this.constants_1.SECURE_CONTAINERS[containerName];
+            const secureContainerId = Constants.SECURE_CONTAINERS[containerName];
             const secureContainer = this.secureContainers[containerName];
             const isCraftable = !secureContainer.not_craftable;
             if (isCraftable) {
                 const requirements = secureContainer.requirements;
-                const productionItem = this.createCraft(secureContainerId, requirements);
+                const productionTime = secureContainer.production_time;
+                const productionItem = this.createCraft(secureContainerId, requirements, productionTime);
                 tables.hideout.production.push(productionItem);
                 counter = counter + 1;
             }
@@ -46,13 +46,16 @@ export class SecureContainersController {
         const tables = db.getTables();
 
         for (const containerName of Object.keys(this.secureContainers)) {
-            const secureContainerId = this.constants_1.SECURE_CONTAINERS[containerName];
+            const secureContainerId = Constants.SECURE_CONTAINERS[containerName];
             const [horizontalSize, verticalSize] = this.secureContainers[containerName].dimensions;
             const item = tables.templates.items[secureContainerId];
             if (item) {
-                const props = item._props.Grids[0]._props;
+                const info = item._props;
+                const props = info.Grids[0]._props;
                 props.cellsH = horizontalSize;
                 props.cellsV = verticalSize;
+                info.sizeWidth = horizontalSize;
+                info.sizeHeight = verticalSize;
                 counter = counter + 1;
             }
         }

@@ -4,10 +4,9 @@ import { IPostAkiLoadMod } from "@spt-aki/models/external/IPostAkiLoadMod";
 import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod";
 import { DatabaseServer } from "@spt-aki/servers/DatabaseServer";
 import { ILogger } from "@spt-aki/models/spt/utils/ILogger";
-import { VFS } from '@spt-aki/utils/VFS';
 
 import { SecureContainersController } from "./secure-containers";
-import { Constants } from "./constants";
+import * as Constants from "./constants";
 import { StashBuilder } from "./stash-builder";
 import { Utils } from "./utils";
 
@@ -15,9 +14,8 @@ import { Utils } from "./utils";
 const uglyClone = (data) => {
     return JSON.parse(JSON.stringify(data));
 };
-class ProfieTemplateBuilder{
-    private constants = new Constants;
 
+class ProfileTemplateBuilder{
     setStashLevelOne(usecOrBear) {
         const character = usecOrBear.character;
         const hideout = character.Hideout;
@@ -25,7 +23,7 @@ class ProfieTemplateBuilder{
 
         // 1. set stash area to level 1
         hideout.Areas = hideout.Areas.map((area) => {
-            if (area.type === this.constants.STASH_AREA) {
+            if (area.type === Constants.STASH_AREA) {
                 return { ...area, level: 1 };
             }
             return area;
@@ -33,19 +31,19 @@ class ProfieTemplateBuilder{
         // 2. set bonuses StashSize to Standard stash
         character.Bonuses = [
             {
-                id: this.constants.STANDARD_STASH,
-                templateId: this.constants.STANDARD_STASH_ID,
+                id: Constants.STANDARD_STASH_ID,
+                templateId: Constants.STANDARD_STASH_TEMPLATEID,
                 type: "StashSize",
             },
         ];
         // 3. set encyclopedia entry
-        character.Encyclopedia[this.constants.STANDARD_STASH_ID] = false;
+        character.Encyclopedia[Constants.STANDARD_STASH_ID] = false;
         let id = "";
         // 4. add stash instance
         inventory.items = inventory.items.map((item) => {
-            if (item._tpl === this.constants.EDGE_OF_DARKNESS_STASH_ID) {
+            if (item._tpl === Constants.EDGE_OF_DARKNESS_STASH_ID) {
                 id = item._id;
-                return { ...item, _tpl: this.constants.STANDARD_STASH_ID };
+                return { ...item, _tpl: Constants.STANDARD_STASH_ID };
             }
             return item;
         });
@@ -60,7 +58,7 @@ class ProfieTemplateBuilder{
         const inventory = usecOrBear.character.Inventory;
         inventory.items = inventory.items.map((item) => {
             if (item.slotId === "SecuredContainer") {
-                return { ...item, _tpl: this.constants.WAIST_POUCH_ID };
+                return { ...item, _tpl: Constants.WAIST_POUCH_ID };
             }
             return item;
         });
@@ -75,18 +73,16 @@ class ProfieTemplateBuilder{
         this.setStashLevelOne(profile.bear);
         this.setPouchAsSecureContainer(profile.usec);
         this.setPouchAsSecureContainer(profile.bear);
-        profiles[this.constants.PROFILE_TEMPLATE_NAME] = profile;
+        profiles[Constants.PROFILE_TEMPLATE_NAME] = profile;
         return true;
     }
 }
 
 class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
-    private config_1 = "../config/config.json";
     private logger: ILogger;
     private utils = new Utils;
-    private constants_1 = new Constants;
 
-    private config = this.utils.readJsonFile(this.config_1);
+    private config = this.utils.readJsonFile(Constants.configJsonLocation);
 
     public preAkiLoad(container: DependencyContainer): void {
         this.logger = container.resolve<ILogger>("WinstonLogger");
@@ -135,7 +131,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
 
         const stashBuilder = new StashBuilder(this.config);
         const secureContainersController = new SecureContainersController(this.config);
-        const profileTemplateBuilder = new ProfieTemplateBuilder();
+        const profileTemplateBuilder = new ProfileTemplateBuilder();
 
         const nbStagesCreated = stashBuilder.injectStashesToDb(db);
 
@@ -155,7 +151,7 @@ class Mod implements IPreAkiLoadMod, IPostAkiLoadMod, IPostDBLoadMod {
             debug(`${nbContainerTweaked} secure containers dimensions updated`);
         }
         if (profileTemplateBuilder.buildStashProfileTemplate(db)) {
-            debug(`created "${this.constants_1.PROFILE_TEMPLATE_NAME}" profile template`);
+            debug(`created "${Constants.PROFILE_TEMPLATE_NAME}" profile template`);
         }
         debug(`Initial stash size: ${(this.config.initial_stash_size)}`);
         this.logger.success(`===> Successfully loaded ${(this.utils.getModDisplayName)(true)}`);

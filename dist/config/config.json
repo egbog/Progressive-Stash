@@ -50,7 +50,8 @@
           "templateId": "590c31c586f774245e3141b2",
           "count": 5
         }
-      ]
+      ],
+      "construction_time": 3600
     },
     {
       "// Tier 3: Prepare for Escape stash": true,
@@ -106,7 +107,8 @@
           "templateId": "590c31c586f774245e3141b2",
           "count": 7
         }
-      ]
+      ],
+      "construction_time": 7200
     },
     {
       "// Tier 4: Edge of Darkness stash": true,
@@ -179,17 +181,18 @@
           "templateId": "60391afc25aff57af81f7085",
           "count": 2
         }
-      ]
+      ],
+      "construction_time": 14400
     }
   ],
   "secure_containers": {
     "pouch": {
       "not_craftable": true,
-      "dimensions": [2, 3],
+      "dimensions": [3, 3],
       "requirements": []
     },
     "alpha": {
-      "dimensions": [3, 3],
+      "dimensions": [4, 4],
       "requirements": [
 		{
 			"// Pouch": true,
@@ -243,10 +246,11 @@
           "areaType": 10,
           "requiredLevel": 1
         }
-      ]
+      ],
+      "production_time": 300
     },
     "beta": {
-      "dimensions": [3, 4],
+      "dimensions": [5, 5],
       "requirements": [
         {
           "// alpha container": true,
@@ -300,10 +304,11 @@
           "areaType": 10,
           "requiredLevel": 1
         }
-      ]
+      ],
+      "production_time": 300
     },
     "epsilon": {
-      "dimensions": [4, 4],
+      "dimensions": [6, 6],
       "requirements": [
         {
           "// beta container": true,
@@ -357,10 +362,11 @@
           "areaType": 10,
           "requiredLevel": 1
         }
-      ]
+      ],
+      "production_time": 300
     },
     "gamma": {
-      "dimensions": [4, 5],
+      "dimensions": [6, 8],
       "requirements": [
         {
           "// epsilon container": true,
@@ -414,10 +420,11 @@
           "areaType": 10,
           "requiredLevel": 2
         }
-      ]
+      ],
+      "production_time": 300
     },
     "kappa": {
-      "dimensions": [4, 6],
+      "dimensions": [6, 10],
       "requirements": [
         {
           "// gamma container": true,
@@ -471,7 +478,8 @@
           "areaType": 10,
           "requiredLevel": 3
         }
-      ]
+      ],
+      "production_time": 300
     }
   }
 }
