@@ -1,4 +1,4 @@
-# Trap's Progressive Stash
+# Trap's Progressive Stash - 3.7.6 TypeScript update
 
 > `Edge of Darkness` but with a feeling of progress.
 
