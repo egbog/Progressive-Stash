@@ -50,7 +50,8 @@
           "templateId": "590c31c586f774245e3141b2",
           "count": 5
         }
-      ]
+      ],
+      "construction_time": 3600
     },
     {
       "// Tier 3: Prepare for Escape stash": true,
@@ -106,7 +107,8 @@
           "templateId": "590c31c586f774245e3141b2",
           "count": 7
         }
-      ]
+      ],
+      "construction_time": 7200
     },
     {
       "// Tier 4: Edge of Darkness stash": true,
@@ -179,7 +181,8 @@
           "templateId": "60391afc25aff57af81f7085",
           "count": 2
         }
-      ]
+      ],
+      "construction_time": 14400
     }
   ],
   "secure_containers": {
@@ -243,7 +246,8 @@
           "areaType": 10,
           "requiredLevel": 1
         }
-      ]
+      ],
+      "production_time": 300
     },
     "beta": {
       "dimensions": [5, 5],
@@ -300,7 +304,8 @@
           "areaType": 10,
           "requiredLevel": 1
         }
-      ]
+      ],
+      "production_time": 300
     },
     "epsilon": {
       "dimensions": [6, 6],
@@ -357,7 +362,8 @@
           "areaType": 10,
           "requiredLevel": 1
         }
-      ]
+      ],
+      "production_time": 300
     },
     "gamma": {
       "dimensions": [6, 8],
@@ -414,7 +420,8 @@
           "areaType": 10,
           "requiredLevel": 2
         }
-      ]
+      ],
+      "production_time": 300
     },
     "kappa": {
       "dimensions": [6, 10],
@@ -471,7 +478,8 @@
           "areaType": 10,
           "requiredLevel": 3
         }
-      ]
+      ],
+      "production_time": 300
     }
   }
 }

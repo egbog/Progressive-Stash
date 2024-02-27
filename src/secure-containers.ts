@@ -6,12 +6,12 @@ export class SecureContainersController {
         this.secureContainers = config.secure_containers;
     }
 
-    createCraft = (itemId, requirements) => {
+    createCraft = (itemId, requirements, productionTime) => {
         return {
             _id: `${itemId}_craft`,
             areaType: Constants.WORKBENCH_AREA,
             requirements: requirements.map((r) => r.type === "Item" ? { ...r, isFunctional: false } : r),
-            productionTime: 300,
+            productionTime: productionTime,
             endProduct: itemId,
             continuous: false,
             count: 1,
@@ -32,7 +32,8 @@ export class SecureContainersController {
             const isCraftable = !secureContainer.not_craftable;
             if (isCraftable) {
                 const requirements = secureContainer.requirements;
-                const productionItem = this.createCraft(secureContainerId, requirements);
+                const productionTime = secureContainer.production_time;
+                const productionItem = this.createCraft(secureContainerId, requirements, productionTime);
                 tables.hideout.production.push(productionItem);
                 counter = counter + 1;
             }

@@ -11,6 +11,7 @@ const EMPTY_STAGE = {
     autoUpgrade: false,
     displayInterface: true,
 };
+
 const EMPTY_STASH_BONUS = {
     value: 0,
     passive: true,
@@ -19,6 +20,7 @@ const EMPTY_STASH_BONUS = {
     templateId: "",
     type: "StashSize",
 };
+
 const createStashItem = (id, size, protoId) => {
     return {
         _id: id,
@@ -99,6 +101,7 @@ const createStashItem = (id, size, protoId) => {
         _proto: protoId,
     };
 };
+
 export class StashBuilder {
     private utils = new Utils;
 
@@ -132,11 +135,13 @@ export class StashBuilder {
             else {
                 const templateId = (this.utils.getStashTemplateId)(index);
                 const id = (this.utils.getStashId)(index);
+                const constructionTime = this.stashUpgrades[index - 2].construction_time;
                 const upgrade = this.stashUpgrades[index - 2];
                 stages[stageId] = {
                     ...EMPTY_STAGE,
                     bonuses: [{ ...EMPTY_STASH_BONUS, id, templateId }],
                     requirements: upgrade.requirements.map((r) => r.type === "Item" ? { ...r, isFunctional: false } : r),
+                    constructionTime: constructionTime,
                 };
             }
         }
@@ -195,7 +200,6 @@ export class StashBuilder {
         for (const localeName of Object.keys(tables.locales.global)) {
             const localeBase = tables.locales.global[localeName];
             const standardTemplate = localeBase[Constants.STANDARD_STASH_ID];
-            const x = 0;
 
             for (const { item, idx } of items.map((item, idx) => ({ item, idx}))) {
                 const stage = idx + 1;
