@@ -185,11 +185,11 @@
   "secure_containers": {
     "pouch": {
       "not_craftable": true,
-      "dimensions": [2, 3],
+      "dimensions": [3, 3],
       "requirements": []
     },
     "alpha": {
-      "dimensions": [3, 3],
+      "dimensions": [4, 4],
       "requirements": [
 		{
 			"// Pouch": true,
@@ -246,7 +246,7 @@
       ]
     },
     "beta": {
-      "dimensions": [3, 4],
+      "dimensions": [5, 5],
       "requirements": [
         {
           "// alpha container": true,
@@ -303,7 +303,7 @@
       ]
     },
     "epsilon": {
-      "dimensions": [4, 4],
+      "dimensions": [6, 6],
       "requirements": [
         {
           "// beta container": true,
@@ -360,7 +360,7 @@
       ]
     },
     "gamma": {
-      "dimensions": [4, 5],
+      "dimensions": [6, 8],
       "requirements": [
         {
           "// epsilon container": true,
@@ -417,7 +417,7 @@
       ]
     },
     "kappa": {
-      "dimensions": [4, 6],
+      "dimensions": [6, 10],
       "requirements": [
         {
           "// gamma container": true,
