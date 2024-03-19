@@ -2,7 +2,7 @@
   "name": "Fears-Temp-Progressive-Stash",
   "displayName": "FEAR's Temporary Progressive Stash",
   "fullName": "FEAR-Temp-ProgressiveStash",
-  "version": "3.0.3",
+  "version": "2.0.0",
   "main": "src/mod.js",
   "license": "MIT",
   "author": "FEAR, egbog",
