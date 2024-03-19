@@ -6,7 +6,7 @@
   "main": "src/mod.js",
   "license": "MIT",
   "author": "FEAR, egbog",
-  "akiVersion": "3.8.0",
+  "akiVersion": "~3.8",
   "scripts": {
 	"zip:files": "node scripts/create-zip.js",
     "copy:files": "mkdir -p ./dist && cp package.json ./dist && cp README.md ./dist && cp LICENSE ./dist && cp -R config ./dist",
@@ -23,18 +23,18 @@
     "test": "tsc --noEmit && npm run lint:all"
   },
   "devDependencies": {
-    "@types/node": "^18.18.4",
+    "@types/node": "20.11",
     "@types/winston": "^2.4.4",
     "@types/ws": "^8.5.7",
-    "@typescript-eslint/eslint-plugin": "6.7.5",
-    "@typescript-eslint/parser": "6.7.5",
+    "@typescript-eslint/eslint-plugin": "7.2",
+    "@typescript-eslint/parser": "7.2",
 	"archiver": "^6.0",
-    "eslint": "8.51.0",
-	"fs-extra": "^11.1",
+    "eslint": "8.57",
+	"fs-extra": "11.2",
 	"ignore": "^5.2",
 	"os": "^0.1",
     "tsyringe": "4.8.0",
-    "typescript": "5.2.2",
-    "winston": "3.11.0"
+    "typescript": "5.4",
+    "winston": "3.12"
   }
 }
