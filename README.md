@@ -1,4 +1,4 @@
-# Trap's Progressive Stash - 3.7.6 TypeScript update
+# Trap's Progressive Stash - 3.8.0 TypeScript update
 
 > `Edge of Darkness` but with a feeling of progress.
 
@@ -33,4 +33,4 @@ Everything is configurable: the size of the different stashes and secure contain
 
 
 ## AKI Compatiblity
-It's compatible with SPT-AKI 3.7.6
+It's compatible with SPT-AKI 3.8.0
