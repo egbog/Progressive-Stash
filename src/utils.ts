@@ -1,6 +1,6 @@
-import * as Constants from './constants';
-import fs from 'fs';
-import path from 'path';
+import * as Constants from "./constants";
+import fs from "fs";
+import path from "path";
 
 export class Utils {
     noop() {};
